@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design a custom cake and preview your creation with Cake Studio.">
+  <title>Cake Studio | Design Your Dream Cake</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-icon" aria-hidden="true">🧁</span><div><h1>Cake Studio</h1><p>Design Your Dream Cake</p></div></div>
+    <span class="header-note">Sweet ideas start here! ♡</span>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls" aria-labelledby="customize-title">
+      <h2 id="customize-title">Customize Your Cake</h2>
+      <p class="subtle">Make it yours, one sweet choice at a time.</p>
+
+      <fieldset><legend><span class="step">1</span> Choose your cake</legend>
+        <div class="choices two">
+          <label class="choice"><input type="radio" name="tiers" value="1" checked><span>🎂<strong>One Tier</strong><small>$25.00</small></span></label>
+          <label class="choice"><input type="radio" name="tiers" value="2"><span>🎂🎂<strong>Two Tiers</strong><small>$45.00</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend><span class="step">2</span> Pick a flavor</legend>
+        <div class="choices two">
+          <label class="choice"><input type="radio" name="flavor" value="Vanilla" checked><span>🌼<strong>Vanilla</strong></span></label>
+          <label class="choice"><input type="radio" name="flavor" value="Chocolate"><span>🍫<strong>Chocolate</strong></span></label>
+          <label class="choice"><input type="radio" name="flavor" value="Strawberry"><span>🍓<strong>Strawberry</strong></span></label>
+          <label class="choice"><input type="radio" name="flavor" value="Red Velvet"><span>❤️<strong>Red Velvet</strong></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend><span class="step">3</span> Frosting color</legend>
+        <div class="swatches">
+          <label><input type="radio" name="frosting" value="Pink" checked><span class="swatch" style="--swatch:#f5a3c4"></span><small>Pink</small></label>
+          <label><input type="radio" name="frosting" value="Lavender"><span class="swatch" style="--swatch:#c6a6f4"></span><small>Lavender</small></label>
+          <label><input type="radio" name="frosting" value="White"><span class="swatch" style="--swatch:#fff8ee"></span><small>White</small></label>
+          <label><input type="radio" name="frosting" value="Blue"><span class="swatch" style="--swatch:#96d6f2"></span><small>Blue</small></label>
+          <label><input type="radio" name="frosting" value="Mint"><span class="swatch" style="--swatch:#a8dfbe"></span><small>Mint</small></label>
+          <label><input type="radio" name="frosting" value="Yellow"><span class="swatch" style="--swatch:#ffe39a"></span><small>Yellow</small></label>
+          <label><input type="radio" name="frosting" value="Peach"><span class="swatch" style="--swatch:#ffc0aa"></span><small>Peach</small></label>
+          <label><input type="radio" name="frosting" value="Cocoa"><span class="swatch" style="--swatch:#b98169"></span><small>Cocoa</small></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend><span class="step">4</span> Add decorations</legend>
+        <p class="subtle">Choose as many as you like.</p>
+        <div class="choices two decorations">
+          <label class="choice"><input type="checkbox" name="decoration" value="Sprinkles"><span>🌈<strong>Sprinkles</strong><small>+$5.00</small></span></label>
+          <label class="choice"><input type="checkbox" name="decoration" value="Flowers"><span>🌸<strong>Flowers</strong><small>+$8.00</small></span></label>
+          <label class="choice"><input type="checkbox" name="decoration" value="Butterflies"><span>🦋<strong>Butterflies</strong><small>+$6.00</small></span></label>
+          <label class="choice"><input type="checkbox" name="decoration" value="Pearls"><span>✨<strong>Pearls</strong><small>+$5.00</small></span></label>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="panel preview-panel" aria-labelledby="preview-title">
+      <div class="panel-heading"><div><h2 id="preview-title">Your Live Preview</h2><p class="subtle">Watch your design come to life!</p></div><span class="live-pill">● Live</span></div>
+      <div class="preview-stage" id="preview-stage">
+        <div class="cake-art" id="cake-art" role="img" aria-label="Pink one-tier cake without decorations">
+          <div class="cake-top-tier" id="cake-top-tier"><div class="top-frosting"></div><div class="top-decor" id="top-decor"></div></div>
+          <div class="cake-bottom-tier"><div class="top-frosting"></div><div class="cake-decor" id="cake-decor"></div><div class="bottom-piping"></div></div>
+          <div class="cake-plate"></div><div class="cake-stand"></div>
+        </div>
+      </div>
+      <p class="preview-tip">Tip: Try two tiers with lavender frosting and butterflies!</p>
+    </section>
+
+    <aside class="panel summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">🛍️ Your Cake Design</h2>
+      <div class="summary-line"><span>Cake type</span><strong id="summary-tiers">One Tier</strong></div>
+      <div class="summary-line"><span>Flavor</span><strong id="summary-flavor">Vanilla</strong></div>
+      <div class="summary-line"><span>Frosting</span><strong id="summary-frosting">Pink</strong></div>
+      <div class="summary-line"><span>Decorations</span><strong id="summary-decorations">None</strong></div>
+      <label class="message-label" for="cake-message">Personalized message <small>(optional)</small></label>
+      <input id="cake-message" type="text" maxlength="40" placeholder="Happy Birthday!">
+      <div class="total-line"><span>Estimated total</span><strong id="total-price">$25.00</strong></div>
+      <p class="price-note">Demo pricing only. No purchase or payment is processed.</p>
+      <button class="primary-button" id="summary-button" type="button">View Order Summary</button>
+      <button class="secondary-button" id="reset-button" type="button">↻ Start Over</button>
+      <div class="receipt" id="receipt" hidden aria-live="polite"></div>
+    </aside>
+  </main>
+  <footer>Made with ♡ at Cake Studio · Capstone Project</footer>
+</body>
+</html>

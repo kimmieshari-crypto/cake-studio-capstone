@@ -1,0 +1,14 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cake-pod
+  labels:
+    app: cake-designer
+spec:
+  containers:
+    - name: cake-container
+      image: flask-cake-app:latest
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 5000
