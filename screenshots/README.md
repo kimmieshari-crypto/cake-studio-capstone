@@ -1,0 +1,1 @@
+Cake Studio application screenshots
